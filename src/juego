@@ -1,0 +1,49 @@
+import random
+
+# Lista de opciones válidas para el juego
+OPCIONES = ["piedra", "papel", "tijera"]
+
+def jugar_ronda():
+    """Contiene toda la lógica de una sola partida."""
+    print("--------------------------------------------------")
+    print("--- ¡NUEVA RONDA! ---")
+    
+    # 1. Entrada del Usuario
+    eleccion_usuario = input("Elige (piedra, papel, o tijera) o escribe 'salir' para terminar: ").lower()
+
+    # Si el usuario quiere salir, la función termina aquí.
+    if eleccion_usuario == 'salir':
+        return 'salir' 
+        
+    if eleccion_usuario not in OPCIONES:
+        print("Opción no válida. Intenta de nuevo.")
+        return
+
+    # 2. Lógica de la IA (Elección aleatoria)
+    eleccion_ia = random.choice(OPCIONES)
+
+    # 3. Determinar Ganador y Mostrar Resultado
+    if eleccion_usuario == eleccion_ia:
+        resultado = "EMPATE"
+    elif (eleccion_usuario == "piedra" and eleccion_ia == "tijera") or \
+         (eleccion_usuario == "papel" and eleccion_ia == "piedra") or \
+         (eleccion_usuario == "tijera" and eleccion_ia == "papel"):
+        resultado = "¡GANASTE!"
+    else:
+        resultado = "PERDISTE"
+
+    print(f"\nTu elección: {eleccion_usuario.capitalize()}")
+    print(f"Elección de la IA: {eleccion_ia.capitalize()}")
+    print(f"RESULTADO: {resultado}")
+
+# --- Bucle de Ejecución Principal ---
+# Esto hace que el juego se repita hasta que se decida salir.
+if __name__ == "__main__":
+    while True:
+        # Llamamos a la función que contiene la lógica
+        resultado = jugar_ronda()
+        
+        # Si la función devuelve 'salir', rompemos el bucle
+        if resultado == 'salir':
+            print("\n¡Gracias por jugar! Saliendo del programa.")
+            break
