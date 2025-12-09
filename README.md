@@ -1,6 +1,6 @@
 # Piedra-Papel-o-Tijera: Avance de Codificación
 **Link al Video Explicativo:** 
-
+https://drive.google.com/file/d/1dqLiIVGLC3dHjpHhQgHKmTqAz37wj_ZW/view?usp=sharing
 ---
 
 ## 1. Análisis y Posición del Estudiante 
